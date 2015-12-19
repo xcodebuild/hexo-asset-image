@@ -1,0 +1,20 @@
+{
+  "name": "hexo-asset-image",
+  "version": "0.0.1",
+  "description": "Give asset image in hexo a absolutely path automatically",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo",
+    "iamge",
+    "asset",
+    "path"
+  ],
+  "author": "codefalling",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.19.0"
+  }
+}
