@@ -26,7 +26,7 @@ hexo.extend.filter.register('after_post_render', function(data){
         var src = $(this).attr('src');
         if(!/http[s]*.*|\/\/.*/.test(src)){
           // is a local file in post_asset_folder
-          src = src.substring(src.indexOf("/") + 1);
+          src = src.split("/").pop();
           $(this).attr('src', '/' + link + src);
         }
       });
