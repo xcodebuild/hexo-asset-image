@@ -10,7 +10,10 @@ hexo.extend.filter.register('after_post_render', function(data){
   var config = hexo.config;
   if(config.post_asset_folder){
     var link = data.permalink;
-    link = link.substring(getPosition(link, '/', 3) + 1);
+	var beginPos = getPosition(link, '/', 3) + 1;
+	// In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".
+	var endPos = link.lastIndexOf('/') + 1;
+    link = link.substring(beginPos, endPos);
 
     var toprocess = ['excerpt', 'more', 'content'];
     for(var i = 0; i < toprocess.length; i++){
@@ -23,10 +26,20 @@ hexo.extend.filter.register('after_post_render', function(data){
       });
 
       $('img').each(function(){
-        var src = $(this).attr('src');
+		// For windows style path, we replace '\' to '/'.
+        var src = $(this).attr('src').replace('\\', '/');
         if(!/http[s]*.*|\/\/.*/.test(src)){
-          // is a local file in post_asset_folder
-          src = src.split("/").pop();
+		  // For "about" page, the first part of "src" can't be removed.
+		  // In addition, to support multi-level local directory.
+		  var linkArray = link.split('/').filter(function(elem){
+		    return elem != '';
+		  });
+		  var srcArray = src.split('/').filter(function(elem){
+		    return elem != '';
+		  });
+		  if(linkArray[linkArray.length - 1] == srcArray[0])
+		    srcArray.shift();
+          src = srcArray.join('/');
           $(this).attr('src', '/' + link + src);
         }
       });
