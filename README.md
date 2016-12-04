@@ -21,4 +21,4 @@ MacGesture2-Publish.md
 
 Make sure `post_asset_folder: true` in your `_config.yml`.
 
-Just use `![logo](MacGesture2-Publish/logo.jpg)` to insert `logo.jpg`.
+Just use `![logo](logo.jpg)` to insert `logo.jpg`.
