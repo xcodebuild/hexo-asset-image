@@ -36,9 +36,9 @@ hexo.extend.filter.register('after_post_render', function(data){
 		    return elem != '';
 		  });
 		  var srcArray = src.split('/').filter(function(elem){
-		    return elem != '';
+		    return elem != '' && elem != '.';
 		  });
-		  if(linkArray[linkArray.length - 1] == srcArray[0])
+	  if(linkArray[linkArray.length - 1] == srcArray[0])			
 		    srcArray.shift();
           src = srcArray.join('/');
           $(this).attr('src', '/' + link + src);
