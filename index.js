@@ -38,7 +38,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 		  var srcArray = src.split('/').filter(function(elem){
 		    return elem != '' && elem != '.';
 		  });
-	// 		if(linkArray[linkArray.length - 1] == srcArray[0])			
+		  if(srcArray.length > 1)
 		    srcArray.shift();
           src = srcArray.join('/');
           $(this).attr('src', '/' + link + src);
