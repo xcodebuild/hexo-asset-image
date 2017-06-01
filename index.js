@@ -42,7 +42,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 		  if(srcArray.length > 1)
 		    srcArray.shift();
           src = srcArray.join('/');
-          $(this).attr('src', '/' + link + src);
+          $(this).attr('src', CONFIG.root + link + src);
         }
       });
       data[key] = $.html();
