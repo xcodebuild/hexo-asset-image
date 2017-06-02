@@ -42,7 +42,8 @@ hexo.extend.filter.register('after_post_render', function(data){
 		  if(srcArray.length > 1)
 		    srcArray.shift();
           src = srcArray.join('/');
-          $(this).attr('src', '/' + link + src);
+          $(this).attr('src', config.root + link + src);
+          console.info("update link as:-->"+config.root + link + src);
         }
       });
       data[key] = $.html();
