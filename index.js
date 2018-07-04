@@ -1,15 +1,10 @@
 'use strict';
 var cheerio = require('cheerio');
-
-// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
-function getPosition(str, m, i) {
-	return str.split(m, i).join(m).length;
-}
-
 hexo.extend.filter.register('after_post_render', function (data) {
 	var config = hexo.config;
 	if (config.post_asset_folder) {
 		var link = data.permalink;
+		var getPosition = (str, m, i)=> str.split(m, i).join(m).length;
 		var beginPos = getPosition(link, '/', 3) + 1;
 		var endPos = link.lastIndexOf('/') + 1;
 		link = link.substring(beginPos, endPos);
