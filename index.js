@@ -6,11 +6,15 @@ function getPosition(str, m, i) {
   return str.split(m, i).join(m).length;
 }
 
+var version = String(hexo.version).split('.');
 hexo.extend.filter.register('after_post_render', function(data){
   var config = hexo.config;
   if(config.post_asset_folder){
-    var link = data.permalink;
-	var beginPos = getPosition(link, '/', 3) + 1;
+    	var link = data.permalink;
+	if(version.length > 0 && Number(version[0]) == 3)
+	   var beginPos = getPosition(link, '/', 1) + 1;
+	else
+	   var beginPos = getPosition(link, '/', 3) + 1;
 	// In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".
 	var endPos = link.lastIndexOf('/') + 1;
     link = link.substring(beginPos, endPos);
