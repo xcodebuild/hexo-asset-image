@@ -1,7 +1,7 @@
 {
-  "name": "hexo-asset-image",
-  "version": "0.0.3",
-  "description": "Give asset image in hexo a absolutely path automatically",
+  "name": "hexo-asset-image-fixed",
+  "version": "0.0.5",
+  "description": "Give asset image in hexo a absolutely path automatically. See details on https://github.com/Core00077/hexo-asset-image",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +12,7 @@
     "asset",
     "path"
   ],
-  "author": "codefalling",
+  "author": "core00077",
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.19.0"
