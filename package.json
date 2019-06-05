@@ -1,6 +1,6 @@
 {
   "name": "hexo-asset-image",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Give asset image in hexo a absolutely path automatically",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,10 @@
     "asset",
     "path"
   ],
-  "author": "codefalling",
+  "author": "xcodebuild",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^0.19.0"
+    "cheerio": "^0.19.0",
+    "entities": "^1.1.2"
   }
 }
