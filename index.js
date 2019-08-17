@@ -11,6 +11,10 @@ hexo.extend.filter.register('after_post_render', function(data){
   if(config.post_asset_folder){
     var link = data.permalink;
     var beginPos = getPosition(link, '/', 3) + 1;
+    // config.root not '/',skip it others may double,fix the problem,hope accept
+    if(config.root != '/'){
+      beginPos = getPosition(link, '/', 4) + 1;
+    }
     var appendLink = '';
     // In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".
     // if not with index.html endpos = link.lastIndexOf('.') + 1 support hexo-abbrlink
