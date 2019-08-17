@@ -10,7 +10,12 @@ hexo.extend.filter.register('after_post_render', function(data){
   var config = hexo.config;
   if(config.post_asset_folder){
     var link = data.permalink;
-    var beginPos = getPosition(link, '/', 3) + 1;
+    var directory_Depth = 3;
+    var child_Depth = config.root.split("/").length - 2;
+    directory_Depth = child_Depth > 0 ? directory_Depth + child_Depth : directory_Depth;
+
+    var beginPos = getPosition(link, '/', directory_Depth) + 1;
+   
     var appendLink = '';
     // In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".
     // if not with index.html endpos = link.lastIndexOf('.') + 1 support hexo-abbrlink
@@ -19,6 +24,8 @@ hexo.extend.filter.register('after_post_render', function(data){
       // image in xxtitle/ will go to xxtitle/index/
       appendLink = 'index/';
       var endPos = link.lastIndexOf('/');
+    }	else if(/.*\.html$/.test(link)){
+      var endPos = link.length-5;
     }
     else {
       var endPos = link.length-1;
