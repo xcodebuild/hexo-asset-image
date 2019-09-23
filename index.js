@@ -12,17 +12,18 @@ hexo.extend.filter.register('after_post_render', function(data){
     var link = data.permalink;
     var beginPos = getPosition(link, '/', 3) + 1;
     var appendLink = '';
-    // In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".
-    // if not with index.html endpos = link.lastIndexOf('.') + 1 support hexo-abbrlink
-    if(/.*\/index\.html$/.test(link)) {
-      // when permalink is end with index.html, for example 2019/02/20/xxtitle/index.html
-      // image in xxtitle/ will go to xxtitle/index/
-      appendLink = 'index/';
-      var endPos = link.lastIndexOf('/');
-    }
-    else {
-      var endPos = link.length-1;
-    }
+    // // In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".
+    // // if not with index.html endpos = link.lastIndexOf('.') + 1 support hexo-abbrlink
+    // if(/.*\/index\.html$/.test(link)) {
+    //   // when permalink is end with index.html, for example 2019/02/20/xxtitle/index.html
+    //   // image in xxtitle/ will go to xxtitle/index/
+    //   appendLink = 'index/';
+    //   var endPos = link.lastIndexOf('/');
+    // }
+    // else {
+    //   var endPos = link.length-1;
+    // }
+    var endPos = link.length-1;
     link = link.substring(beginPos, endPos) + '/' + appendLink;
 
     var toprocess = ['excerpt', 'more', 'content'];
