@@ -26,3 +26,5 @@ Just use `![logo](logo.jpg)` to insert `logo.jpg`.
 # History
 
 2018-04-18: support hexo-abbrlink
+2019-09-23: support hexo-lazyload-image
+2019-09-23: fixed hexo-abbrlink using *.html image path error
