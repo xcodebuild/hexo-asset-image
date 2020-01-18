@@ -1,6 +1,6 @@
 {
   "name": "hexo-asset-image-fixed",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Give asset image in hexo a absolutely path automatically. See details on https://github.com/Core00077/hexo-asset-image",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,6 @@
   "author": "core00077",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^0.19.0"
+    "cheerio": "^1.0.0-rc.3"
   }
 }
